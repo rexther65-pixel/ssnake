@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Luck!</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #e1bee7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #d65a8a;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    background: #e879a5;
+    color: white;
+    border: none;
+    padding: 13px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ce5285;
+    transform: scale(1.08);
+}
+
+#message {
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+#message h2 {
+    color: #d65a8a;
+    margin-bottom: 15px;
+}
+
+#message p {
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 25px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="welcome">
+        <div class="emoji">🌸💗</div>
+        <h1>A Little Surprise!</h1>
+        <p>
+            Someone has a special message for you.<br>
+            Are you ready to open it?
+        </p>
+        <button onclick="openMessage()">Open 💌</button>
+    </div>
+
+    <div id="message">
+        <div class="emoji">🍀✨</div>
+        <h2>GOOD LUCK! 💖</h2>
+        <p>
+            Wishing you all the best!<br><br>
+            Believe in yourself, trust your abilities,
+            and always remember how capable you are.
+            No matter what happens, give it your best
+            and never stop believing in your dreams.<br><br>
+            You've got this! Keep smiling and do your best.
+            I'm rooting for you! 🌷<br><br>
+            <b>Good luck! You can do it! 💗</b>
+        </p>
+        <div style="font-size:35px;">🌸 🦋 🌸</div>
+    </div>
+
+</div>
+
+<script>
+function openMessage() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("message").style.display = "block";
+
+    // Floating hearts
+    for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = ["💗", "💕", "🌸", "✨"][Math.floor(Math.random() * 4)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+}
+</script>
+
+</body>
+</html>
